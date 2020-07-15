@@ -70,21 +70,21 @@ function computeBill(items) {
 function getTax(category, price) {
   if (categoryMap.containsKey(category)) {
     let taxRate = categoryMap[category];
-    return (price * taxRate) / 100;
+    return price * (taxRate / 100); //100 to convert from percentage to actual value
   }
-  if (category == "Clothes") {
-    if (price < 1000) {
-      return price * 0.05;
-    } else {
-      return price * 0.12;
-    }
-  }
-  if (category == "Music") {
-    return price * 0.03;
-  }
-  if (category == "Imported") {
-    return price * 0.18;
-  }
+  //   if (category == "Clothes") {
+  //     if (price < 1000) {
+  //       return price * 0.05;
+  //     } else {
+  //       return price * 0.12;
+  //     }
+  //   }
+  //   if (category == "Music") {
+  //     return price * 0.03;
+  //   }
+  //   if (category == "Imported") {
+  //     return price * 0.18;
+  //   }
   return price;
 }
 
